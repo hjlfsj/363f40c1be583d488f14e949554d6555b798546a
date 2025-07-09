@@ -1,0 +1,815 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>实验概况</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+
+/* ============================================
+ * ============ TYPORA lATEX THEME ============
+ * ============================================
+ * This project is based on the work of yfzhao20 and du33169,
+   whose repositories are addressed on
+   <https://github.com/yfzhao20/Typora-markdown> and
+   <https://github.com/du33169/typora-theme-essay_cn>,
+   many thanks to them.
+ * Typora LaTeX Theme (Markdown LaTeX Theme)
+   is a CSS theme mainly used as a component of Typora,
+   which is designed for Chinese university students
+   used in LaTeX-styled essays and reports.
+ * Copyright (C) 2021 Keldos;
+ * Repository Address: <https://github.com/Keldos-Li/typora-latex-theme>;
+ * Licensed Under GPL v3.0, SEE <https://github.com/Keldos-Li/typora-latex-theme/blob/main/LICENSE>
+ */
+/* As a special exception, you may create a larger work
+   that contains part or all of the Typora LaTeX Theme
+   and distribute that work under terms of your choice,
+   so long as that work isn't itself a CSS theme
+   or can be processed into CSS theme by using some
+   CSS pre-processors like SASS. Alternatively, if you
+   modify or redistribute this CSS theme itself,
+   you may (at your option) remove this special exception,
+   which will cause the CSS theme and the resulting output files
+   to be licensed under the GNU General Public License
+   without this special exception.
+ */
+:root {
+  /* == 字体设置 == */
+  /* 基准字体 */
+  /* 备选：Times, "Times New Roman" */
+  --base-Latin-font: "Latin Modern Roman", "Latin Modern Roman 10";
+  --base-Chinese-font: "宋体-简", "华文宋体", "Noto Serif CJK SC";
+  --base-font-size: 9.5pt;
+  /* 引言字体 */
+  --quote-font: "Latin Modern Roman", "Latin Modern Roman 10", Times,
+    "Times New Roman", "华文仿宋";
+  /* 这里字体用了10pt,比正文字体稍大 */
+  --quote-font-size: 10pt;
+  /* 代码字体（代码中的中文会调用 ui-font） */
+  --code-font: "Latin Modern Mono", "Latin Modern Mono 10", "Courier New";
+  /* 侧边栏字体 */
+  --ui-font: "阿里巴巴普惠体 2.0", "微软雅黑";
+  /* source mode 字体 */
+  /* 默认调用 code-font 和 ui-font */
+  --sourceMode-font: "SF Mono", "阿里巴巴普惠体 2.0", "微软雅黑";
+  /* 目录字体 */
+  /* 默认调用 base-font */
+  --toc-font: "";
+  /* 默认调用 base-font-size */
+  --toc-font-size: "";
+  /* 表格字体 */
+  /* 默认调用 heading-font */
+  --table-title-font: "";
+  /* 默认调用 base-font */
+  --table-font: "";
+  /* 标题字体（总设置） */
+  --heading-Latin-font: var(--base-Latin-font);
+  --heading-Chinese-font: "华文黑体";
+  /* 标题字体分别设置 */
+  /* 大标题（h1）字体 */
+  --title-Chinese-font: "华文黑体";
+  --title-font-size: 18pt;
+  /* h2字体 */
+  --h2-Chinese-font: "华文黑体";
+  --h2-font-size: 14pt;
+  /* h3字体 */
+  --h3-Chinese-font: "华文黑体";
+  --h3-font-size: 12pt;
+  /* h4字体 */
+  --h4-Chinese-font: "华文楷体";
+  --h4-font-size: 10pt;
+  /* h5字体 */
+  --h5-Chinese-font: "华文仿宋";
+  --h5-font-size: 10pt;
+  /* h6字体 */
+  --h6-Chinese-font: "华文仿宋";
+  --h6-font-size: 9.5pt;
+  /* 粗体样式设置 */
+  /* 加粗风格时使用的字重；400等同于 normal，700等同于 bold，900等同于 heavy */
+  --strong-weight: 900;
+  /* 基础行距 */
+  --base-line-height: 16pt;
+  /* == 页面设置 == */
+  /* 打印页边距 */
+  --set-margin: 1.8cm 2cm 1.2cm 2cm !important;
+  /* == 控制设置 == */
+  /* 目录中是否显示一级标题 */
+  --toc-show-title: none;
+  /* == 颜色设置 == */
+  /* 超链接颜色 */
+  --link-color-light: #2E67D3;
+  --link-color-dark: #8bb1f9;
+}
+
+/* ========== VERY IMPORTANT 请注意看下面的几行: ================
+   如果您需要在输出PDF时隐藏超链接的颜色和下划线，请取消注释下面的代码块，即删去下面的 Ln.1 和 Ln.2
+   如果您需要在输出PDF时保持超链接的显示效果，则不用更改 ============= */
+/* 如要取消注释代码，请把本行删去 Ln.1
+
+@media print {
+  #write a {
+    color: inherit !important;
+    text-decoration: none;
+  } 
+}
+
+如要取消注释代码，请把本行删去 Ln.2 */
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: var(--base-line-height);
+  /* counter-reset: tableHead 0 imgHead 0; */
+}
+
+strong {
+  font-weight: var(--strong-weight);
+}
+
+@media screen {
+  #write {
+    padding: var(--set-margin);
+    /* 添加一个淡蓝色的边框 */
+    /* border: 0.8px solid #AAC ; */
+    /* 页边阴影 */
+    box-shadow: 0 0 24px 12px #cccccc;
+  }
+}
+@media print {
+  #write {
+    padding: 0 !important;
+  }
+
+  @page {
+    margin: 1.8cm 2cm 1.2cm 2cm !important;
+    /* 页边距 */
+  }
+}
+/* 正文区基本属性 */
+#write {
+  font-family: var(--base-Latin-font), var(--base-Chinese-font), serif;
+  font-size: var(--base-font-size);
+  /* A4标准宽度 */
+  max-width: 21cm;
+  background-color: white;
+  /* column-count: 2;
+    column-gap: 25px;
+    column-width: 8cm; 
+    display: inline-block; */
+  /* 这里可以试分栏的，但确实不适合实现 */
+  counter-reset: h2 0 h3 0 h4 0 h5 0 h6 0;
+}
+#write p {
+  text-align: left;
+}
+#write a {
+  color: var(--link-color-light);
+}
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+  font-weight: bold;
+  /* 标题字体 */
+  font-family: var(--heading-Latin-font), var(--heading-Chinese-font), sans-serif;
+  page-break-after: avoid !important;
+}
+#write h1 {
+  font-family: var(--heading-Latin-font), var(--title-Chinese-font), sans-serif;
+  text-align: center;
+  column-span: all;
+  font-size: var(--title-font-size);
+}
+#write h2 {
+  font-family: var(--heading-Latin-font), var(--h2-Chinese-font), sans-serif;
+  font-size: var(--h2-font-size);
+}
+#write h3 {
+  font-family: var(--heading-Latin-font), var(--h3-Chinese-font), sans-serif;
+  font-size: var(--h3-font-size);
+  line-height: var(--h3-font-size);
+}
+#write h4 {
+  font-family: var(--heading-Latin-font), var(--h4-Chinese-font), sans-serif;
+  font-size: var(--h4-font-size);
+  line-height: var(--h4-font-size);
+}
+#write h5 {
+  font-family: var(--heading-Latin-font), var(--h5-Chinese-font), sans-serif;
+  font-size: var(--h5-font-size);
+  line-height: var(--h5-font-size);
+}
+#write h6 {
+  font-family: var(--heading-Latin-font), var(--h6-Chinese-font), sans-serif;
+  font-size: var(--h6-font-size);
+  /* 没有写错，为了避免行距太小才这么写 */
+  line-height: var(--h5-font-size);
+}
+#write table {
+  /* 三线表第一条线宽度 */
+  border-top: 1.2pt solid;
+  /* 三线表第二条线宽度 */
+  border-bottom: 1.2pt solid;
+  font-family: var(--table-font), var(--base-Latin-font), var(--base-Chinese-font), serif;
+  /* font-size: var(--base-font-size); */
+  text-align: center;
+  page-break-inside: avoid;
+  border-spacing: 6px;
+  /* 自动布局表格宽度，如果有时内容太紧建议直接加空格吧，我自己看不惯和页面等宽的大表格 */
+  width: auto;
+  /* 使表格默认居中；虽然这个代码不好，但好像没别的实现办法 */
+  margin: 0 auto;
+}
+#write table td {
+  padding: 2px;
+}
+#write table tr {
+  padding: 2px;
+}
+#write th {
+  padding: 0px 6px;
+}
+#write thead {
+  /* 表格标题（首行）样式 */
+  /* 三线表表头的线 */
+  border-bottom: 0.5pt solid;
+  font-family: var(--table-title-font), var(--heading-Latin-font), var(--heading-Chinese-font), serif !important;
+  /* font-size: var(--base-font-size); */
+  font-weight: var(--strong-weight);
+}
+#write .CodeMirror-wrap {
+  padding: 10px;
+}
+#write .CodeMirror-code pre {
+  font-family: var(--code-font), var(--ui-font), monospace;
+}
+#write h1 {
+  counter-reset: h2;
+}
+#write h2 {
+  counter-reset: h3;
+}
+#write h3 {
+  counter-reset: h4;
+}
+#write h4 {
+  counter-reset: h5;
+}
+#write h5 {
+  counter-reset: h6;
+}
+
+/*
+#write figure:after{
+  counter-increment: tableHead;
+  content: "表" counter(tableHead) " ";
+  text-align:center;
+  width:100%;
+  display:inline-block;
+}*/
+/* 图片，导出PDF时暂时无法显示 */
+/*
+#write .md-image:after{
+  counter-increment: imgHead;
+  content: "图" counter(imgHead) " ";
+  text-align:center;
+  width:100%;
+  display:inline-block;
+}
+*/
+/* basic 样式采用一般的引言，具有左边框、左缩进 */
+blockquote {
+  font-style: normal;
+  font-family: var(--quote-font), var(--base-Latin-font), var(--base-Chinese-font), -apple-system, serif;
+  font-size: var(--quote-font-size);
+  /* 文字离左边框的距离 */
+  padding-left: 16px;
+  padding-right: 20pt;
+  /* 左边框离页面边的距离 */
+  margin-left: 20px;
+}
+
+hr {
+  border-top: solid 0.7px #eee;
+}
+
+img {
+  /* 避免图片在导出时被断开 */
+  page-break-inside: avoid;
+}
+
+/* ============ 多级列表样式 ============ */
+ul {
+  /* 无序列表第一级：实心圆点 */
+  list-style: disc;
+}
+ul ul {
+  /*list-style: circle;*/
+  /* 请勿删除“–”后的空格, 他们对缩进有一定影响, 下同 */
+  list-style: "–　 ";
+  /*left: -0.8rem;*/
+}
+ul ul ul {
+  /* 无序列表第三极：小圈 */
+  list-style: "◦　";
+  left: 0.1rem;
+}
+
+ol {
+  /* 有序列表第一级：数字 */
+  list-style: decimal;
+}
+ol ol {
+  counter-reset: liist;
+  list-style: none;
+}
+ol ol li {
+  counter-increment: liist;
+  position: relative;
+}
+ol ol li::before {
+  /* 有序列表第二级：括号加小写字母 */
+  content: "(" counter(liist,lower-alpha) ")　　";
+  position: absolute;
+  margin-right: 2rem;
+  left: -2.4rem;
+}
+ol ol ol {
+  counter-reset: liiist;
+  list-style: none;
+  margin: 0;
+}
+ol ol ol li {
+  counter-increment: liiist;
+  position: relative;
+}
+ol ol ol li::before {
+  /* 有序列表第三级：小写罗马数字 */
+  content: counter(liiist,lower-roman) ".　　";
+  align-self: flex-end;
+  position: absolute;
+  left: -3rem;
+  /* -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;*/
+  /* 为了让项目编号是重新用句点对齐而不是左对齐 */
+  width: 4.2rem;
+  text-align: right;
+}
+
+li {
+  position: relative;
+}
+
+/* ============ 多级列表样式END ============ */
+/* 行内代码 */
+code {
+  font-family: var(--code-font), var(--ui-font), monospace;
+}
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code,
+p code,
+li code {
+  color: #3c70c6;
+  background-color: #fefefe;
+  /* 阴影 */
+  box-shadow: 0 0 1px 1px #c8d3df;
+  font-family: var(--code-font), var(--ui-font), monospace;
+  box-sizing: border-box;
+  border-right: 0px;
+  margin: 0 2px 0 2px;
+  padding: 0 2px 0 2px;
+  /* 圆角 */
+  border-radius: 2px 2px 2px 2px;
+}
+
+/* typora 编写模式 */
+#typora-source {
+  font-family: var(--sourceMode-font), var(--code-font), var(--ui-font), monospace;
+  line-height: 2rem;
+}
+
+#write h2:before {
+  counter-increment: h2;
+  content: counter(h2);
+  margin-right: 2rem;
+}
+
+#write h3:before, h3.md-focus.md-heading:before {
+  counter-increment: h3;
+  content: counter(h2) "." counter(h3);
+  margin-right: 2rem;
+}
+
+#write h4:before, h4.md-focus.md-heading:before {
+  counter-increment: h4;
+  content: counter(h2) "." counter(h3) "." counter(h4);
+  margin-right: 2rem;
+}
+
+#write h5:before, h5.md-focus.md-heading:before {
+  counter-increment: h5;
+  content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
+  margin-right: 2rem;
+}
+
+#write h6:before, h6.md-focus.md-heading:before {
+  counter-increment: h6;
+  content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6);
+  margin-right: 2rem;
+}
+
+.footnotes-area .footnote-line {
+  color: var(--text-color);
+  font-size: var(--base-font-size);
+}
+.footnotes-area hr {
+  border: 0;
+  color: #00000000;
+}
+
+/* 目录 */
+.md-toc-content {
+  margin-left: 2em;
+  /* 修复缺失上级标题时无法递增 */
+  counter-reset: toc-h2 toc-h3 toc-h4;
+  page-break-after: always;
+}
+
+.md-toc-inner {
+  margin-left: 0 !important;
+  color: var(--text-color) !important;
+}
+
+.md-toc-item {
+  color: var(--text-color) !important;
+}
+
+/* 目录标题内容属性 */
+.md-toc-h2,
+.md-toc-h3,
+.md-toc-h4,
+.md-toc-h5,
+.md-toc-h6 {
+  font-size: var(--toc-font-size);
+  font-family: var(--toc-font), var(--base-Latin-font), var(--base-Chinese-font), serif;
+}
+
+.md-toc-h2 {
+  font-weight: var(--strong-weight);
+}
+
+/* 目录标题前 */
+.md-toc-content .md-toc-h1 {
+  display: var(--toc-show-title);
+  counter-reset: toc-h2;
+}
+.md-toc-content .md-toc-h2 {
+  counter-reset: toc-h3;
+}
+.md-toc-content .md-toc-h3 {
+  counter-reset: toc-h4;
+}
+.md-toc-content .md-toc-h4 {
+  counter-reset: toc-h5;
+}
+.md-toc-content .md-toc-h5 {
+  counter-reset: toc-h6;
+}
+.md-toc-content .md-toc-h2:before {
+  counter-increment: toc-h2;
+  content: counter(toc-h2);
+  margin-right: 1rem;
+  font-weight: var(--strong-weight);
+}
+.md-toc-content .md-toc-h3:before {
+  counter-increment: toc-h3;
+  content: counter(toc-h2) "." counter(toc-h3);
+  margin-left: 1.5rem;
+  margin-right: 0.5rem;
+}
+.md-toc-content .md-toc-h4:before {
+  counter-increment: toc-h4;
+  content: counter(toc-h2) "." counter(toc-h3) "." counter(toc-h4);
+  margin-left: 3.5rem;
+  margin-right: 0.5rem;
+}
+.md-toc-content .md-toc-h5:before {
+  counter-increment: toc-h5;
+  content: counter(toc-h2) "." counter(toc-h3) "." counter(toc-h4) "." counter(toc-h5);
+  margin-left: 5.5rem;
+  margin-right: 0.5rem;
+}
+.md-toc-content .md-toc-h6:before {
+  counter-increment: toc-h6;
+  content: counter(toc-h2) "." counter(toc-h3) "." counter(toc-h4) "." counter(toc-h5) "." counter(toc-h6);
+  margin-left: 7.5rem;
+  margin-right: 0.5rem;
+}
+
+/* 侧边大纲标题 */
+.sidebar-content .outline-h1 {
+  counter-reset: outline-h2;
+}
+.sidebar-content .outline-h2 {
+  counter-reset: outline-h3;
+}
+.sidebar-content .outline-h2 .outline-label:before {
+  counter-increment: outline-h2;
+  content: counter(outline-h2) " ";
+}
+.sidebar-content .outline-h3 {
+  counter-reset: outline-h4;
+}
+.sidebar-content .outline-h3 .outline-label:before {
+  counter-increment: outline-h3;
+  content: counter(outline-h2) "." counter(outline-h3) "  ";
+}
+.sidebar-content .outline-h4 {
+  counter-reset: outline-h5;
+}
+.sidebar-content .outline-h4 .outline-label:before {
+  counter-increment: outline-h4;
+  content: counter(outline-h2) "." counter(outline-h3) "." counter(outline-h4) "  ";
+}
+.sidebar-content .outline-h5 {
+  counter-reset: outline-h6;
+}
+.sidebar-content .outline-h5 .outline-label:before {
+  counter-increment: outline-h5;
+  content: counter(outline-h2) "." counter(outline-h3) "." counter(outline-h4) "." counter(outline-h5) "  ";
+}
+
+.sidebar-content {
+  /* 侧边栏的字体修改 */
+  font-family: var(--ui-font);
+  list-style: none;
+}
+
+/* 元数据（如 YAML front matter）的背景框 */
+pre.md-meta-block {
+  background: #cccccc;
+  padding: 1.4em;
+  font-family: var(--code-font), var(--ui-font), monospace;
+}
+
+#write > h3.md-focus:before,
+#write > h4.md-focus:before,
+#write > h5.md-focus:before,
+#write > h6.md-focus:before,
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+  color: inherit;
+  border: inherit;
+  border-radius: inherit;
+  position: inherit;
+  left: initial;
+  float: none;
+  top: initial;
+  font-size: inherit;
+  padding-left: inherit;
+  padding-right: inherit;
+  vertical-align: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+
+
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h1><a name="attpc实验总览" class="md-header-anchor"></a><span>ATTPC实验总览</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#attpc实验总览">ATTPC实验总览</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3"><a class="md-toc-inner" href="#documents">Documents</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n22"><a class="md-toc-inner" href="#总体设置">总体设置</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n23"><a class="md-toc-inner" href="#探测器位置">探测器位置</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n37"><a class="md-toc-inner" href="#逻辑设置">逻辑设置</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n107"><a class="md-toc-inner" href="#en束流线探测器">EN束流线探测器</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n108"><a class="md-toc-inner" href="#束流线各探测器位置">束流线各探测器位置</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n125"><a class="md-toc-inner" href="#初级靶al降能片">初级靶，Al降能片</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n140"><a class="md-toc-inner" href="#塑闪ppac">塑闪，PPAC</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n182"><a class="md-toc-inner" href="#en-beamline-daq">EN beamline DAQ</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n194"><a class="md-toc-inner" href="#attpc探测器">ATTPC探测器</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n202"><a class="md-toc-inner" href="#get线路连接get获取界面">GET线路连接，GET获取界面</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n247"><a class="md-toc-inner" href="#漂移电场电压">漂移电场电压</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n268"><a class="md-toc-inner" href="#attpc气路">ATTPC气路</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n277"><a class="md-toc-inner" href="#alpha源测试">alpha源测试</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n302"><a class="md-toc-inner" href="#零度探测器">零度探测器</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n303"><a class="md-toc-inner" href="#si-探测器">Si 探测器</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n329"><a class="md-toc-inner" href="#gagg探测器">GAGG探测器</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n382"><a class="md-toc-inner" href="#frib-daq">FRIB-DAQ</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n383"><a class="md-toc-inner" href="#使用的各个插件">使用的各个插件</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n412"><a class="md-toc-inner" href="#关于原始数据解码tcl配置文件">关于原始数据解码，.tcl配置文件</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n437"><a class="md-toc-inner" href="#e546">E546  </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n442"><a class="md-toc-inner" href="#网络相关">网络相关</a></span></p></div><h2><a name="documents" class="md-header-anchor"></a><span>Documents</span></h2><ol start='' ><li><strong><span>AT-TPC preparations for RCNP campaign</span></strong><span>：</span><a href='documents\Preparations.pdf'><span>Preparations</span></a><span>.实验总体设置的介绍</span></li><li><strong><span>RCNP 网络账号申请以及使用说明：</span></strong><a href='documents\RCNP computer.pdf'><span>RCNP computer</span></a></li><li><strong><span>AT-TPC  campaign Wiki记录：</span></strong><span> </span><a href='documents\AT-TPC campaign - PukiWiki.pdf'><span>AT-TPC campaign - PukiWiki-backup</span></a><span>  （pdf备份）， </span><a href='https://www.rcnp.osaka-u.ac.jp/Divisions/np1-a/pukiwiki/?AT-TPC+campaign'><span>AT-TPC campaign - PukiWiki</span></a><span>   （访问需要RCNP的账号密码）</span></li><li><strong><span>Fribdaq使用说明:</span></strong><span> </span><a href='documents\FRIBDAQ Manual.pdf'><span>Fribdaq_manual</span></a></li><li><strong><span>EN_daq使用说明：</span></strong><span> </span><a href='documents/man_ENDAQ.pdf'><span>ENdaq_manual</span></a></li><li><strong><span>束流线 Go4使用说明：</span></strong><span> </span><a href='documents\How to use Go4 analyzer for EN DAQ.pdf'><span>Go4_manual</span></a><span> </span></li><li><strong><span>实验线路连接示意图：</span></strong><a href='imgs\实验线路连接.png'><span>线路示意图</span></a></li><li><strong><span>ATTPC-campaign Google 文档：</span></strong><span> </span><a href='https://drive.google.com/drive/folders/1X92l1QzWWVbAjU775b2L0s_Bz3ud4rnJ'><span>AT-TPC campaign @ RCNP - Google Drive</span></a></li></ol><p>&nbsp;</p><h2><a name="总体设置" class="md-header-anchor"></a><span>总体设置</span></h2><h3><a name="探测器位置" class="md-header-anchor"></a><span>探测器位置</span></h3><p><mark><span>探测器相对位置如下图所示：</span></mark></p><figure><table><thead><tr><th><span>束流线设置</span></th></tr></thead><tbody><tr><td><img src="imgs\setup_layout.webp" referrerpolicy="no-referrer"></td></tr></tbody></table></figure><p><mark><span>探测器实物图相对位置：</span></mark><span> 从左至右为：F3靶室（两块PPAC，一块硅）；F3塑闪（两端各有一个光电倍增管用于读出）；插板阀；Ion chamber；ATTPC.</span></p><figure><table><thead><tr><th><span>探测器位置实物图</span></th></tr></thead><tbody><tr><td><img src="imgs\set_overlook.jpg" style="zoom: 25%;" /></td></tr></tbody></table></figure><p>&nbsp;</p><h3><a name="逻辑设置" class="md-header-anchor"></a><span>逻辑设置</span></h3><ul><li><span>主trigger 的逻辑参见 </span><a href='documents\Preparations.pdf'><span>Preparations</span></a><span> 中的trigger logic。</span><strong><span>Trigger = </span><code>IC</code><span> (delay 100 us) &amp;&amp; </span><code>Mesh</code><span>(stretch 120us)</span></strong></li><li><span>系统之间的的连接，以及部分NIM机箱的线路连接见</span><a href='imgs\实验线路连接.png'><span>线路示意图</span></a><span>. （</span><mark><span>不涉及具体插件的逻辑结构图：</span></mark><span>）</span></li></ul><p>&nbsp;</p><p><mark><span>逻辑插件所在的NIM机箱：</span></mark></p><figure><table><thead><tr><th><span>逻辑插件示意图（仅供参考）</span></th></tr></thead><tbody><tr><td><img src="imgs\logic_creat.jpg" style="zoom:20%;" /></td></tr><tr><td>&nbsp;</td></tr></tbody></table></figure><p><span>上图从左到右依次为：</span></p><figure><table><thead><tr><th><span>序号</span></th><th><span>1</span></th><th><span>2</span></th><th><span>3</span></th><th><span>4</span></th><th><span>5</span></th></tr></thead><tbody><tr><td><span>作用：</span></td><td><span>信号衰减；</span></td><td><span>信号一分二插件</span></td><td><span>Nimttl,ecl信号转换</span></td><td><span>分除插件</span></td><td><span>单路主放</span></td></tr><tr><td><span>备注：</span></td><td><span>衰减主放输出的IC，Mesh的信号，输出端接入SIS3300</span></td><td>&nbsp;</td><td><span>输出接入scaler的ECL信号</span></td><td><span>分除IC信号</span></td><td><span>IC信号主放。该主放一路输出逻辑信号，一路输出整形后的信号</span></td></tr></tbody></table></figure><p>&nbsp;</p><figure><table><thead><tr><th><span>序号</span></th><th><span>6</span></th><th><span>7</span></th><th>&nbsp;</th><th><span>8</span></th><th><span>9</span></th><th><span>10</span></th><th><span>11</span></th></tr></thead><tbody><tr><td><span>作用</span></td><td><span>延迟IC信号</span></td><td><span>4通道and 逻辑插件</span></td><td>&nbsp;</td><td><span>产生Mesh信号的gate</span></td><td><span>Mesh信号的单路主放</span></td><td><span>一分五TTL转NIM插件</span></td><td><span>4路or插件</span></td></tr><tr><td><span>备注</span></td><td><span>实际并没有延迟功能，而是使用展宽的NIM信号末端的del信号产生一个新的NIM信号</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><span>用于输出trigger，以及输出busy信号</span></td></tr></tbody></table></figure><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2><a name="en束流线探测器" class="md-header-anchor"></a><span>EN束流线探测器</span></h2><h3><a name="束流线各探测器位置" class="md-header-anchor"></a><span>束流线各探测器位置</span></h3><figure><table><thead><tr><th><mark><span>EN beamline setting</span></mark></th></tr></thead><tbody><tr><td><img src="imgs\beanline.jpg" style="zoom: 50%;" /></td></tr><tr><td>&nbsp;</td></tr></tbody></table></figure><ol start='' ><li><span>F0：初级靶  (Be 1/2.5/3/4.5 mm)</span></li><li><span>F1：Al降能片（具体安装厚度待定）+狭缝</span></li><li><span>F2：PPAC + Si (</span><mark><span>320um</span></mark><span>)+ PPAC + 塑闪（</span><mark><span>100um</span></mark><span>）</span></li><li><span>F3 ：PPAC + Si (320um)+ PPAC + 塑闪  (100um)</span></li></ol><h3><a name="初级靶al降能片" class="md-header-anchor"></a><span>初级靶，Al降能片</span></h3><p><strong><span>初级靶，Al降能片的厚度，位置等具体信息见wiki 中的F1，F2章节</span></strong></p><ul><li><a href='https://www.rcnp.osaka-u.ac.jp/Divisions/np1-a/pukiwiki/?AT-TPC+campaign'><span>AT-TPC campaign - PukiWiki</span></a><span>   （访问需要RCNP的账号密码），wiki中的Be靶厚度为束流测试结果。</span></li><li><a href='documents\AT-TPC campaign - PukiWiki.pdf'><span>AT-TPC campaign - PukiWiki-backup</span></a><span>  （打印出的pdf备份）</span></li></ul><figure><table><thead><tr><th><span>束流线磁铁，步进电机，F2荧光靶  （6.4调束）</span></th></tr></thead><tbody><tr><td><img src="imgs\F2_beam.jpg" style="zoom:12.5%;" /></td></tr></tbody></table></figure><p><mark><span>F0，F1 步进电机控制系统使用说明：</span></mark><font color = "red"><span>（待补充）</span></font></p><p><mark><span>EN Magnets控制系统使用说明：</span></mark><font color = "red"><span>（待补充）</span></font></p><p>&nbsp;</p><h3><a name="塑闪ppac" class="md-header-anchor"></a><span>塑闪，PPAC</span></h3><p>&nbsp;</p><figure><table><thead><tr><th><span>F2,F3塑闪（图中标签为之前的塑闪厚度）</span></th><th><span>F3_PPAC</span></th></tr></thead><tbody><tr><td><img src="imgs\eg_PL.jpg" style="zoom: 67%;" /></td><td><img src="imgs\eg_PPAC.jpg" style="zoom:25%;" /></td></tr><tr><td><span>F3塑闪信号</span></td><td><span>PPAC信号：阳极（黄），阴极（绿）</span></td></tr><tr><td><img src="imgs\pl_sig.jpg" referrerpolicy="no-referrer"></td><td><img src="imgs\ppac_sig.jpg" referrerpolicy="no-referrer"></td></tr></tbody></table></figure><p><mark><span>F2，F3塑料闪烁体</span></mark></p><ul><li><span>塑料闪烁体两端各有一个光电倍增管读出：F2PL_L，F2PL_R，F2PL_L，F2PL_R</span></li><li><span>厚度：100um</span></li><li><span>工作电压：1500V.  (使用CAEN SY403远控电压)</span></li></ul><p><mark><span>F2，F3 PPAC</span></mark></p><ul><li><p><span>气压：工作气体为异丁烷（C4H10）,气压在20torr时的工作电压过高。气压后更改为</span><mark><span>10torr</span></mark></p></li><li><p><span>工作电压：在说明中设定电压均为</span><mark><span>700V</span></mark><span>，6.4号针对11Be次级束的工作电压：</span></p><figure><table><thead><tr><th><span>F2U</span></th><th><span>F2D</span></th><th><span>F3U</span></th><th><span>F3D</span></th></tr></thead><tbody><tr><td><span>813V</span></td><td><span>808V</span></td><td><span>797V</span></td><td><span>851V</span></td></tr></tbody></table></figure></li></ul><p>&nbsp;</p><h3><a name="en-beamline-daq" class="md-header-anchor"></a><span>EN beamline DAQ</span></h3><p><mark><span>DAQ详细使用说明：</span></mark><a href='https://www.rcnp.osaka-u.ac.jp/Divisions/np1-a/pukiwiki/?EN+beamline+DAQ'><span>EN beamline DAQ - PukiWiki</span></a></p><p><span>说明中包含：</span></p><ul><li><span>操作，设置，转数据说明</span></li><li><span>各个通道的mapping</span></li><li><span>刻度数据的位置</span></li><li><span>vme获取系统，主要插件为v1190和madc32</span></li></ul><h2><a name="attpc探测器" class="md-header-anchor"></a><span>ATTPC探测器</span></h2><figure><table><thead><tr><th><span>ATTPC结构示意图</span></th></tr></thead><tbody><tr><td><img src="imgs\attpc.png" style="zoom:50%;" /></td></tr></tbody></table></figure><p><span>ATTPC的主体结构示意图如上图所示。与示意图不同的是，本次束流从pad端入射，pad中心挖去了直径为30mm的圆孔。阳极的电压为10kV，阳极一侧安装了零度探测器。</span></p><p><span>AT-TPC的各个系统，在</span><a href='documents\Preparations.pdf'><span>Preparations</span></a><span>有详细的介绍，但是图片清晰度极低。</span></p><h3><a name="get线路连接get获取界面" class="md-header-anchor"></a><span>GET线路连接，GET获取界面</span></h3><p><span>ATTPC 的电子学路数共10240路，需要10个COBO，每个COBO板支持1024路。</span></p><ul><li><span>COBO：连接两个ZAP板，每个ZAP板包含两个ASAD板。因此一块COBO连接4块ASAD</span></li><li><span>ASAD：包含4个AGET芯片，每个芯片支持64路电子学。因此一块ASAD路数为256路</span></li></ul><figure><table><thead><tr><th><span>ZAP板对应线序</span></th><th><span>GET机箱，左侧10个COBO用于ATTPC，最后一个用于零度Si探测器</span></th></tr></thead><tbody><tr><td><img src="imgs\ASAD_map.jpg" referrerpolicy="no-referrer"></td><td><img src="imgs\get.jpg" referrerpolicy="no-referrer"></td></tr><tr><td><strong><span>ATTPC法兰</span></strong></td><td><strong><span>安装内圈ZAP板：需要从内圈逐个向外安装，尤其注意右侧内圈要调整气路管道的位置。</span></strong></td></tr><tr><td><img src="imgs\cable.jpg" style="zoom:20%;" /></td><td><img src="imgs\asad.jpg" referrerpolicy="no-referrer"></td></tr></tbody></table></figure><p>&nbsp;</p><p><span>GET获取的控制界面为</span><code>AT-TPC Envoy</code><span>，GUI界面如下图所示：</span></p><ul><li><span>最左侧为手动输入的runlog，可以记录束流，电压等信息</span></li><li><span>最上方为当前载入的配置文件</span><code>.yaml</code><span>，包含增益，trigger延迟，阈值等信息</span></li><li><span>左侧的</span><code>Envoy</code><span>列表包含11个COBO和一个Mutant，每一个COBO对应一个Mac mini服务器。COBO的状态</span><code>status</code><span>，有</span><code>described,prepared,ready</code><span>，需要一步一步progress到ready，才能开始获取。如果修改配置文件，或者出现无法采数的情况，也需要回退到described的状态，重新开始配置。</span></li><li><span>最下方为实时监测的</span><code>Data rate</code><span>，实验时需要密切关注是否有数据读入。</span></li></ul><figure><table><thead><tr><th><span>AT-TPC envoy</span></th></tr></thead><tbody><tr><td><img src="imgs/attpc_envoy.jpg" style="zoom:10%;" /></td></tr></tbody></table></figure><p><mark><span>目前没有关于AT-TPC envoy 的操作手册，无法处理以下的问题：</span></mark></p><ul><li><span>如何打开AT-TPC envoy界面</span></li><li><span>如何打开并正确修改配置文件</span></li><li><span>如何连接Mac mini server</span></li></ul><p>&nbsp;</p><h3><a name="漂移电场电压" class="md-header-anchor"></a><span>漂移电场电压</span></h3><p><span>AT-TPC的电子漂移区域可以分为：</span></p><ul><li><span>阴极(-10kV)到V1，电子漂移区域</span></li><li><span>V2到pad，信号放大区域</span></li></ul><figure><table><thead><tr><th><span>HV Power control。右下角可以监控每个通道的漏流大小，以判断tpc是否打火</span></th><th><span>漂移以及放大区域的结构</span></th></tr></thead><tbody><tr><td><img src="imgs/attpc_power.jpg" style="zoom: 33%;" /></td><td><img src="imgs/config_b.jpg" referrerpolicy="no-referrer"></td></tr><tr><td><strong><span>V2-V5和塑闪使用同一个高压插件供电。在测试的过程中，V1-V4高压插件损坏，使用另一个高压插件的四路代替。同时V1比较特殊，只能使用原先的插件。</span></strong></td><td><strong><span>某种高压保护插件</span></strong></td></tr><tr><td><img src="imgs/caen_power.jpg" referrerpolicy="no-referrer"></td><td><img src="imgs/HV.jpg" style="zoom:33%;" /></td></tr></tbody></table></figure><p>&nbsp;</p><h3><a name="attpc气路" class="md-header-anchor"></a><span>ATTPC气路</span></h3><p><span>ATTPC的气路目前没有完整的连接逻辑图，也没有实验时的操作手册</span><mark><span>待补充</span></mark></p><p><span>在气路准备就绪的情况下，只需要在控制界面设定气压值，即可完成，充气，放气，循环的操作。下图中Target和shield正在同时充气，充气是需要维持target的气压略大于shield，以保证target气体的纯净。</span></p><figure><table><thead><tr><th><span>AT-TPC  Gas  Handling  system</span></th></tr></thead><tbody><tr><td><img src="imgs/gas_control.jpg" style="zoom:30%;" /></td></tr></tbody></table></figure><p>&nbsp;</p><h3><a name="alpha源测试" class="md-header-anchor"></a><span>alpha源测试</span></h3><p><mark><span>首先，使用脉冲发生器，检验pad，GET是否正常工作，以及mapping是否正确</span></mark><span>。该步骤在使用get之前都需要检查，因为COBO可能没有正确启动。</span></p><p><span>在测试时，向Mesh的test端输入一个脉冲信号，该信号为连续的五个脉冲。Mesh上的电压信号会在同尺寸的pad上感应出相同幅度的信号。</span></p><p><span>下图中为脉冲发生器测试数据，左侧为pad的响应，中间为结合脉冲的时间信息重建的三维径迹，右侧为某一块ASAD上的信号波形。在测试时，主要观察pad的响应。由于两种尺寸的pad信号幅度不同，并且设置了不同的增益，因此在正常情况下，只会表现出两种信号幅度。</span></p><p><span>当一些通道没有信号时，下图表现为pad信号缺失；当mapping错误时，下图表现为出现多种不同幅度的pad信号。此时需要检查ASAD板是否连接牢固，供电是否正常，重启COBO，线序是否正确~.</span></p><p><span>在pad的响应图中，可以拖动GUI中的圆圈图标，查看每个pad的mapping，并在最上方界面中查询相应的通道，绘制出原始信号的波形图</span><mark><span>（get 采样率12.5 MHz，采样点数512）</span></mark><span>。</span></p><figure><table><thead><tr><th><span>某些ASDA异常的情况</span></th><th><span>ASDA均正常的情况</span></th></tr></thead><tbody><tr><td><img src="imgs/bad_get.jpg" referrerpolicy="no-referrer"></td><td><img src="imgs/good_get.jpg" style="zoom: 40%;" /></td></tr></tbody></table></figure><p>&nbsp;</p><p><span>在脉冲发生器测试之后，即可充入工作气体，加上电压，利用ATTPC内壁上沾染的裂变源(约5MeV)，进行测试。测试时需要对Mesh信号所使用的前放进行降噪，同时根据工作气体和气压仔细调节电压（电压需要根据以往测试的经验进行设置：</span><a href='imgs\hv_par.jpg'><span>部分参考参数</span></a><span>）。</span></p><figure><table><thead><tr><th><span>主放输出的Mesh信号</span></th><th><span>alpha粒子径迹（60torr异丁烷）</span></th></tr></thead><tbody><tr><td><img src="imgs/mesh_sig.jpg" style="zoom:40%;" /></td><td><img src="imgs/60torr.jpg" referrerpolicy="no-referrer"></td></tr></tbody></table></figure><p><span>alpha粒子的径迹如右图所示，在正常情况下，径迹是一条直线。可以通过能损大小，判断出aplha粒子的出射位置。</span></p><p><span>增益：120 小pad， 140大pad</span></p><h2><a name="零度探测器" class="md-header-anchor"></a><span>零度探测器</span></h2><h3><a name="si-探测器" class="md-header-anchor"></a><span>Si 探测器</span></h3><p><span>Si探测器使用的型号为ttt4，128</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.807ex" height="1.653ex" viewBox="0 -621.3 778 711.8" role="img" focusable="false" style="vertical-align: 0.021ex; margin-bottom: -0.231ex;"><defs><path stroke-width="0" id="E2-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E2-MJMAIN-D7" x="0" y="0"></use></g></svg></span><script type="math/tex">\times</script><span> 128 strips，10</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.807ex" height="1.653ex" viewBox="0 -621.3 778 711.8" role="img" focusable="false" style="vertical-align: 0.021ex; margin-bottom: -0.231ex;"><defs><path stroke-width="0" id="E2-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E2-MJMAIN-D7" x="0" y="0"></use></g></svg></span><script type="math/tex">\times</script><span> 10 cm</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.054ex" height="2.475ex" viewBox="0 -975.2 453.9 1065.6" role="img" focusable="false" style="vertical-align: -0.21ex;"><defs><path stroke-width="0" id="E3-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use transform="scale(0.708)" xlink:href="#E3-MJMAIN-32" x="0" y="512"></use></g></svg></span><script type="math/tex">^2</script><span>，500um（第一层） + 1000um（第二层）.</span></p><p><span>ttt4 每一面设计了四组排针，排针的定义如右图所示。非常诡异的是，ttt4的正反面呈旋转对称结构。无论你将正面还是反面朝上，排针的指向和硅条的朝向都一模一样。说明书的一个细节可以用于区分正反面：观察示意图最下方位置，两个大的金色方块，</span><mark><span>上方有一个更小金色的方块，存在这个小方块的即为正面。</span></mark><span>（可以放大本页面观察）</span></p><figure><table><thead><tr><th><span>ttt4示意图</span></th><th><span>ttt4转接板</span></th></tr></thead><tbody><tr><td><img src="imgs/tt4.jpg" referrerpolicy="no-referrer"></td><td><img src="imgs/ttt4_cable.jpg" style="zoom:45%;" /></td></tr></tbody></table></figure><p><span>由于ttt4的对称性，无论是正面面向束流，还是背面面向束流，都不会改变接口的线序。但是ttt4到ASAD的转接板就并非如此了。</span><mark><span>其旋转180度也能严丝合缝的使用，但是却会导致Si的某几路信号之间接地。这是测试零度Si时，观察到巨大漏流的原因。</span></mark><span>因此，该转接板在使用时需要小心的判断正确的连接方向。</span></p><p><span>下图为安装了第一层Si的情况，左侧的一块ASAD板用于读出两块Si正面的256路信号，右侧的一块ASAD板用于读出背面的256路信号。在加电压时，需要给一块ASAD的HV1,HV2加上电压（测试时约为100V），另一块ASAD板使用50</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.677ex" height="2.064ex" viewBox="0 -798.2 722 888.7" role="img" focusable="false" style="vertical-align: -0.21ex;"><defs><path stroke-width="0" id="E4-MJMAIN-3A9" d="M55 454Q55 503 75 546T127 617T197 665T272 695T337 704H352Q396 704 404 703Q527 687 596 615T666 454Q666 392 635 330T559 200T499 83V80H543Q589 81 600 83T617 93Q622 102 629 135T636 172L637 177H677V175L660 89Q645 3 644 2V0H552H488Q461 0 456 3T451 20Q451 89 499 235T548 455Q548 512 530 555T483 622T424 656T361 668Q332 668 303 658T243 626T193 560T174 456Q174 380 222 233T270 20Q270 7 263 0H77V2Q76 3 61 89L44 175V177H84L85 172Q85 171 88 155T96 119T104 93Q109 86 120 84T178 80H222V83Q206 132 162 199T87 329T55 454Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E4-MJMAIN-3A9" x="0" y="0"></use></g></svg></span><script type="math/tex">\Omega</script><span>匹配。</span></p><p><span>在进行第一层500um硅的alpha源测试时，由于背面转接板方向错误，部分硅条信号接地，导致漏流偏大，能谱分辨较差。测试1000um的硅时，由于始终无法测到信号，纠正了转接板的问题。此时能谱的分辨极好.（</span><mark><span>由于数据为h5格式，尚未进行完善的分析</span></mark><span>。并且由于第二层硅已经安装上，无法再对第一层硅进行测试。</span></p><figure><table><thead><tr><th><span>安装在支架上的ttt4</span></th><th><span>Si的ASDA板</span></th></tr></thead><tbody><tr><td><img src="imgs/si_box.jpg" referrerpolicy="no-referrer"></td><td><img src="imgs/si_asda.jpg" referrerpolicy="no-referrer"></td></tr><tr><td><span>500um tt4测试数据</span></td><td><span>1000um tt4测试数据</span></td></tr><tr><td><img src="imgs/si_500.jpg" referrerpolicy="no-referrer"></td><td><img src="imgs/si_1000.jpg" referrerpolicy="no-referrer"></td></tr></tbody></table></figure><h3><a name="gagg探测器" class="md-header-anchor"></a><span>GAGG探测器</span></h3><p><span>Si探测器后方设计了两层GAGG探测器，用于探测零度重离子和gamma射线。所以GAGG均使用APD，型号为</span><code>S8664-1010</code><span>，灵敏面积为</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.484ex" height="2.27ex" viewBox="0 -798.2 3222.4 977.2" role="img" focusable="false" style="vertical-align: -0.416ex;"><defs><path stroke-width="0" id="E5-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E5-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="0" id="E5-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E5-MJMAIN-31"></use><use xlink:href="#E5-MJMAIN-30" x="500" y="0"></use><use xlink:href="#E5-MJMAIN-D7" x="1222" y="0"></use><g transform="translate(2222,0)"><use xlink:href="#E5-MJMAIN-31"></use><use xlink:href="#E5-MJMAIN-30" x="500" y="0"></use></g></g></svg></span><script type="math/tex">10\times 10</script><span> mm.</span></p><p><span>两层GAGG的信号由APD上的2pin线引出，先经过前放，然后经过主放（</span><mark><span>MSCF-16</span></mark><span>），最后经过</span><mark><span>MDU-16</span></mark><span>，将主放输出的差分信号转为lemo 单端信号，最后输入firb获取插件。</span></p><figure><table><thead><tr><th><span>安装完毕的GAGG</span></th><th><span>尝试包装第二层GAGG</span></th></tr></thead><tbody><tr><td><img src="imgs/gagg.jpg" style="zoom:40%;" /></td><td><img src="imgs/layer2.jpg" referrerpolicy="no-referrer"></td></tr></tbody></table></figure><p><span>最初开始测试GAGG时，测试电压为</span><mark><span>400V</span></mark><span>，此时观察前放输出的信号，可以频繁的发现由于大火导致的放电信号，表现为：指数衰减信号的上升沿处存在巨大的反冲。因此，在之后的测试中电压控制在</span><mark><span>360V</span></mark><span>，一组GAGG的漏流约1uA.</span></p><blockquote><p><mark><span>第一层GAGG</span></mark></p></blockquote><ul><li><p><span>尺寸为</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.646ex" height="2.27ex" viewBox="0 -798.2 5444.9 977.2" role="img" focusable="false" style="vertical-align: -0.416ex;"><defs><path stroke-width="0" id="E6-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E6-MJMAIN-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path><path stroke-width="0" id="E6-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path stroke-width="0" id="E6-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E6-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E6-MJMAIN-31"></use><use xlink:href="#E6-MJMAIN-38" x="500" y="0"></use><use xlink:href="#E6-MJMAIN-D7" x="1222" y="0"></use><g transform="translate(2222,0)"><use xlink:href="#E6-MJMAIN-31"></use><use xlink:href="#E6-MJMAIN-38" x="500" y="0"></use></g><use xlink:href="#E6-MJMAIN-D7" x="3444" y="0"></use><g transform="translate(4444,0)"><use xlink:href="#E6-MJMAIN-32"></use><use xlink:href="#E6-MJMAIN-30" x="500" y="0"></use></g></g></svg></span><script type="math/tex">18\times 18 \times 20</script><span> mm，光收集面使用光学胶耦合apd，其他面（包括粒子入射面）均使用ESR膜包裹。</span></p></li><li><p><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.162ex" height="2.27ex" viewBox="0 -798.2 2222.4 977.2" role="img" focusable="false" style="vertical-align: -0.416ex;"><defs><path stroke-width="0" id="E7-MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="0" id="E7-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E7-MJMAIN-35" x="0" y="0"></use><use xlink:href="#E7-MJMAIN-D7" x="722" y="0"></use><use xlink:href="#E7-MJMAIN-35" x="1722" y="0"></use></g></svg></span><script type="math/tex">5\times 5</script><span>阵列，但是由于其中一块GAGG实际上是耦合了一块PD，所以实际只使用了24块，在边角的位置去掉了一块。</span></p></li><li><p><span>最初测试时使用了25MeV的前放，最后使用了CAEN A1442B前放，该前放为32路，有</span><mark><span>40MeV和200MeV</span></mark><span>两档量程，可以方便的通过外置跳线进行更改。该前放的最大差分输出为</span><mark><span>4.5</span></mark><span>V，衰减时间为50us.</span></p></li><li><p><span>使用CAEN 前放的200MeV挡位，未加高压时的噪声</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.968ex" height="2.064ex" viewBox="0 -798.2 1278 888.7" role="img" focusable="false" style="vertical-align: -0.21ex;"><defs><path stroke-width="0" id="E8-MJMAIN-B1" d="M56 320T56 333T70 353H369V502Q369 651 371 655Q376 666 388 666Q402 666 405 654T409 596V500V353H707Q722 345 722 333Q722 320 707 313H409V40H707Q722 32 722 20T707 0H70Q56 7 56 20T70 40H369V313H70Q56 320 56 333Z"></path><path stroke-width="0" id="E8-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E8-MJMAIN-B1" x="0" y="0"></use><use xlink:href="#E8-MJMAIN-32" x="778" y="0"></use></g></svg></span><script type="math/tex">\pm 2</script><span>~</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.968ex" height="2.27ex" viewBox="0 -798.2 1278 977.2" role="img" focusable="false" style="vertical-align: -0.416ex;"><defs><path stroke-width="0" id="E9-MJMAIN-B1" d="M56 320T56 333T70 353H369V502Q369 651 371 655Q376 666 388 666Q402 666 405 654T409 596V500V353H707Q722 345 722 333Q722 320 707 313H409V40H707Q722 32 722 20T707 0H70Q56 7 56 20T70 40H369V313H70Q56 320 56 333Z"></path><path stroke-width="0" id="E9-MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E9-MJMAIN-B1" x="0" y="0"></use><use xlink:href="#E9-MJMAIN-35" x="778" y="0"></use></g></svg></span><script type="math/tex">\pm5</script><span> mV。360V电压，Co60源情况下，前放信号幅度</span><mark><span>20-30mV，按照目前的估计该前放满足测量9Li的需求</span></mark><span> </span></p><figure><table><thead><tr><th><span>GAGG信号上升沿</span></th><th><span>GAGG信号幅度</span></th></tr></thead><tbody><tr><td><img src="imgs/rise_time.jpg" referrerpolicy="no-referrer"></td><td><img src="imgs/gagg_sig.jpg" referrerpolicy="no-referrer"></td></tr></tbody></table></figure><p>&nbsp;</p></li><li><p><span>考虑到第一层GAGG在沉积重离子时会产生幅度很高的信号，可能会超过FRIB-daq插件的接受范围。因此主放增益调节为</span><mark><span>1</span></mark><span>，但是通过示波器观察主放输出信号的幅度，仍然是前放的</span><mark><span>2倍</span></mark><span>左右。为了降低信号幅度，将第一层GAGG的</span><mark><span>MDU-16</span></mark><span>的增益调节为</span><mark><span>1/2</span></mark><span>，此时主放输出的信号幅度和前放接近，主放起到整形滤波的作用。（理论上也可以不使用主放）</span></p></li></ul><blockquote><p><mark><span>第二层GAGG</span></mark></p></blockquote><ul><li><span>尺寸为</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.646ex" height="2.27ex" viewBox="0 -798.2 5444.9 977.2" role="img" focusable="false" style="vertical-align: -0.416ex;"><defs><path stroke-width="0" id="E10-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E10-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="0" id="E10-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path stroke-width="0" id="E10-MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E10-MJMAIN-32"></use><use xlink:href="#E10-MJMAIN-30" x="500" y="0"></use><use xlink:href="#E10-MJMAIN-D7" x="1222" y="0"></use><g transform="translate(2222,0)"><use xlink:href="#E10-MJMAIN-32"></use><use xlink:href="#E10-MJMAIN-30" x="500" y="0"></use></g><use xlink:href="#E10-MJMAIN-D7" x="3444" y="0"></use><g transform="translate(4444,0)"><use xlink:href="#E10-MJMAIN-32"></use><use xlink:href="#E10-MJMAIN-35" x="500" y="0"></use></g></g></svg></span><script type="math/tex">20 \times 20 \times 25</script><span> mm，光收集面使用硅脂耦合apd，其他面全部使用生料带包裹。</span></li><li><span>包装第二层GAGG时，由于支架设计的冗余过小，不得不只使用生料带在包装的同时固定住APD，以减少包装材料的厚度。同时还需要去掉支架的格栅，以及部分螺丝。由于只使用了两层生料带，APD固定的并不牢固。</span></li><li><span>使用25MeV量程的前放。360V电压，Co60源情况下，主放信号幅度</span><mark><span>100-200mV</span></mark><span>. 中途重新插拔了APD的2pin线 之后，前放输出的信号幅度显著降低。（插拔过程中导致硅脂耦合效果变差）</span><mark><span>目前没有重新测量分辨率</span></mark><span>，观察主放信号，信噪比尚可。</span></li></ul><p>&nbsp;</p><blockquote><p><mark><span>APD 能量和分辨随时间的变化</span></mark></p></blockquote><p><span>使用vme 获取系统，360V电压，Cs137源情况下，对第一层的8块GAGG进行了约22个小时的测试（6.6， 14：00——6.7， 10：00）。下图提取了每半个小时的峰道址和能量分辨率。峰道址呈现出多个极值点，能量分辨则略有变差。峰道址的变化可能和温度有关，</span><mark><span>目前没有进行过更长时间的测量</span></mark></p><figure><table><thead><tr><th><span>峰道址随时间的变化</span></th><th><span>能量分辨随时间的变化</span></th></tr></thead><tbody><tr><td><img src="imgs/peak_time.jpg" referrerpolicy="no-referrer"></td><td><img src="imgs/res_time.jpg" referrerpolicy="no-referrer"></td></tr></tbody></table></figure><p>&nbsp;</p><h3><a name="frib-daq" class="md-header-anchor"></a><span>FRIB-DAQ</span></h3><h4><a name="使用的各个插件" class="md-header-anchor"></a><span>使用的各个插件</span></h4><p><span>GAGG以及scaler由FRIB的数字化获取系统负责记录。该获取系统有一个建议的使用说明（仅限于start,stop ）：</span><a href='documents\FRIBDAQ Manual.pdf'><span>Fribdaq_manual</span></a><span>. 该使用说明唯一需要注意的一点就是当终端输出和示例不一致，或者无法正常</span><code>begin</code><span>时，需要使用</span><code>./restarting</code><span>命令重启系统。</span></p><p><span>NSCL DAQ的网页详细说明：  </span><a href='https://docs.frib.msu.edu/daq/newsite/nscldaq-11.3/index.html'><span>NSCL DAQ Software Documentation</span></a><span> 内容过于冗长，参考性较低</span></p><figure><table><thead><tr><th><span>FRIB DAQ获取机箱</span></th></tr></thead><tbody><tr><td><img src="imgs/frib_daq.jpg" style="zoom:10%;" /></td></tr></tbody></table></figure><ul><li><span>最左侧的为主控插件VM-USB（说明书：</span><a href='documents\WIENER_VM-USB_Manual_R4_2022.pdf'><span>VM-USB_Manual</span></a><span> ），如果需要原始数据解码，则需要查阅该说明书~</span></li><li><span>SIS36/38 XX 为scaler 插件，各个通道对应的scaler信号来源：</span><a href='documents\Scaler List-Jin-comment.pdf'><span>scaler list</span></a></li><li><span>中间的插件为v977，具体作用现在不太清楚。</span></li><li><span>中间的三个8通道ADC，为SIS3300/1，两种插件基本一致，说明书见：</span><a href='documents\sis3300_v300.pdf'><span>SIS330X </span></a><span> ，最大输入信号5V</span></li><li><span>最后一个插件为16通道ADC，SIS3316，说明书见：</span><a href='documents\sis3316-m-1-1-v128.pdf'><span>SIS3316</span></a><span>，最大输入信号2/5 V</span></li></ul><p><mark><span>目前ADC通道的分配情况：（gagg的mapping还需要进一步确认）</span></mark></p><ul><li><span>SIS3316 的16路，对应第一层GAGG的前16路</span></li><li><span>SIS3301(倒数第二个插件)，对应第一层GAGG的后8路</span></li><li><span>第一个SIS3300，前两路为IC，Mesh信号，后六路为第二层GAGG的9-14路（</span><mark><span>第二层没有足够的获取通道</span></mark><span>）</span></li><li><span>第二个SIS3300，接入第二层GAGG的1-8路</span></li></ul><h4><a name="关于原始数据解码tcl配置文件" class="md-header-anchor"></a><span>关于原始数据解码，.tcl配置文件</span></h4><p><span>frib_daq生成的数据为.evt结构的16进制文件，目前有用于观察波形的Igor程序。下面简述从中提取外部时间戳，也就是scaler的方法：</span></p><blockquote><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 14px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">第一个事件详细验证：</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">原始数据: 00 1e 00 00 00 04 00 00 00 fb 17 0d 00 00 00 58 57 10 01 77 09 02 00 03 19</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">数据分解:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">起始标志: 00 1e</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">事件序号位置:  09  (小端序) =&gt; 0000000D</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">时间戳位置: 02 0 (小端序) =&gt; 01105758</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">间隔4字节: 0 03</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">结束标志: 03 19</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 192px;"></div><div class="CodeMirror-gutters" style="display: none; height: 192px;"></div></div></div></pre></blockquote><p><span>16进制的数据中00 1e实际表示1e 00，标志获取记录到一个event，19 03则表示获取中的第一个插件，19 03之前包含着时间戳和事件序号，之后则为波形数据。</span></p><p><mark><span>FRIB_DAQ 配置文件：</span></mark></p><figure><table><thead><tr><th><img src="imgs/tcl_1.jpg" style="zoom:50%;" /></th></tr></thead><tbody><tr><td><img src="imgs/tcl_2.jpg" style="zoom:42.5%;" /></td></tr></tbody></table></figure><ul><li><p><span>SIS330x 为adc1,adc2,adc3，目前的有两种采样设置，实验时需要根据trigger相对于GAGG信号的延迟重新设置</span></p></li><li><p><span>SIS3316为adc4，该模块的设置略有不同：</span></p><ol start='' ><li><span>-range 中的参数设置为5V</span></li><li><span>-dcoffset 中的0xc000 16进制数用于设置基线，该数值越小，基线高度越高，需要根据信号调整。</span></li><li><span>SIS3316的采样率参数似乎不起作用，始终以125MHz的频率运行</span></li><li><span>SIS3316 配置中</span><code>-samples [lrepeat 4 2048] -pretrigger [lrepeat 4 3000]</code><span>，其中2048为采样点数，3000为从trigger到达的位置往回推3000个采样点，然后开始采样。</span></li></ol></li></ul><h2><a name="e546" class="md-header-anchor"></a><span>E546  </span></h2><p><strong><span>基本情况</span></strong></p><ul><li><p><mark><span>束流情况</span></mark><span>：</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.876ex" height="2.475ex" viewBox="0 -975.2 807.8 1065.6" role="img" focusable="false" style="vertical-align: -0.21ex;"><defs><path stroke-width="0" id="E18-MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="0" id="E18-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g transform="translate(0,362)"><use transform="scale(0.708)" xlink:href="#E18-MJMAIN-31"></use><use transform="scale(0.708)" xlink:href="#E18-MJMAIN-32" x="500" y="0"></use></g></g></svg></span><script type="math/tex">^{12}</script><span>C</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.333ex" height="2.475ex" viewBox="0 -975.2 1004.5 1065.6" role="img" focusable="false" style="vertical-align: -0.21ex;"><defs><path stroke-width="0" id="E24-MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path stroke-width="0" id="E24-MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g transform="translate(0,362)"><use transform="scale(0.708)" xlink:href="#E24-MJMAIN-34" x="0" y="0"></use><use transform="scale(0.708)" xlink:href="#E24-MJMAIN-2B" x="500" y="0"></use></g></g></svg></span><script type="math/tex">^{4+}</script><span> ，约85MeV，调束时流强约0.8nA，在实验过程中进入attpc的束流强度为5000-10000（ion chamber给出）之间，中途经历过多次调整。在实验中不使用任何束流线探测器</span></p></li><li><p><mark><span>ATTPC设置</span></mark><span>： ATTPC工作气体为异丁烷（C4H10），工作气压57.7torr（前大半部分实验）。V_MM = 300V，V_THGEM = 50V。Ion Chamber的工作气体也为异丁烷，气压100torr，工作电压60V.</span></p></li><li><p><span>Trigger设置：放弃使用</span><code>(Mesh &amp;&amp; IC)</code><span>，使用</span><code>(attpc_multi &amp;&amp; TC)</code><span>作为trigger ，同时只有半径大于</span><mark><span>50mm</span></mark><span>的pad参与</span><code>attpc_multi</code><span>的响应。</span></p><p><mark><span>更换trigger原因：</span></mark><span>束流的准直并不能达到所有径迹均限制在空洞的要求，因此仅使用Mesh，会记录大量的束流事件</span></p></li></ul><p><strong><span>可能存在的问题：</span></strong></p><ul><li><span>实验过程中主要监测了</span><code>IC_rate</code><span>和</span><code>attpc_multi</code><span>两个参数，并没有实时监测attpc的气压和电压数据，可能会影响数据分析结果。</span></li><li><span>虽然已经使用了扣除半径50mm以内响应的</span><code>attpc_multi</code><span> 作为trigger信号，但是在实验过程中经常出现束流强度不变，但是</span><code>attpc_multi</code><span>大幅上升的情况，此时束流方向发生偏转，需要经常联系加速器进行调整</span></li></ul><p><strong><span>初步筛选的 2 track 事件数据：</span></strong></p><figure><table><thead><tr><th><span>电荷沉积与射程的二维关联图；两个track的theta角度关联</span></th></tr></thead><tbody><tr><td><img src="imgs\Screenshot at 2025-07-07 14-09-52.png" referrerpolicy="no-referrer"></td></tr><tr><td><span>在二维关联图上筛选出12C，同时限制phi角（即限制两个track处于同一个平面），此时的theta角度关联</span></td></tr><tr><td><img src="imgs\Screenshot at 2025-07-07 14-11-55.png" referrerpolicy="no-referrer"></td></tr><tr><td><span>电荷沉积与射程的二维关联图；两个track的phi角度关联</span></td></tr><tr><td><img src="imgs\Screenshot at 2025-07-07 15-00-59.png" referrerpolicy="no-referrer"></td></tr><tr><td><span>在二维关联图上筛选出12C，此时的theta角度关联</span></td></tr><tr><td><img src="imgs\Screenshot at 2025-07-07 14-59-03.png" referrerpolicy="no-referrer"></td></tr></tbody></table></figure><p>&nbsp;</p><p>&nbsp;</p><h2><a name="网络相关" class="md-header-anchor"></a><span>网络相关</span></h2><p><mark><span>从外网（edu）登入rcnp的账户</span></mark></p><ul><li><span>ssh  user@login-a.rcnp.osaka-u.ac.jp</span></li><li><span>输入账户密码，随后ssh跳转到其他服务器</span></li></ul><p><mark><span>从内网（rcnp-gp）</span></mark><span>登入rcnp账户</span></p><ul><li><span>ssh  user@saho-a</span></li><li><span>输入账户密码，随后ssh跳转到其他服务器</span></li></ul><p><mark><span>其他服务器</span></mark></p><ul><li><p><span>go4 所在服务器，ssh -Y daq@lawrencium (PW: rcnpdaq)</span></p></li><li><p><span>调束数据服务器，ssh daq@plutonium -Y （PW: rcnpdaq1）</span></p><ol start='' ><li><span>原始数据(6.4调束)位置:/home/daq/ridf/attpc</span></li><li><span>转出数据位置：/home/daq/exp/attpc/users/trong/ENridf2root</span></li></ol></li><li><p><span>可以远程连接frib-daq的中转电脑：ssh  attpc@172.16.204.68  (pw：activetarget)，</span><mark><span>E546实验原始数据，decode数据，以及初步的分析程序位于该电脑</span></mark></p></li><li><p><span>GAGG主放插件远控服务器：ssh -Y quser@nihonium  (pw: rcnpdaq)</span></p><ol start='' ><li><span>screen /dev/ttyUSB0</span></li><li><span>SC</span></li><li><span>读取参数：RE 0(bus序号) 1(bus中的主放地址)  21(要读取的参数)</span></li><li><span>设置参数：SE 0 1 21 10</span></li></ol><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></li></ul><p>&nbsp;</p><p>&nbsp;</p></div>
+</body>
+</html>
