@@ -327,7 +327,7 @@ NSCL DAQ的网页详细说明：  [NSCL DAQ Software Documentation](https://docs
 | ------------------------------------------------- |
 | <img src="imgs/frib_daq.jpg" style="zoom:10%;" /> |
 
-- 最左侧的为主控插件VM-USB（说明书：[VM-USB_Manual](documents\WIENER_VM-USB_Manual_R4_2022.pdf) ），如果需要原始数据解码，则需要查阅该说明书~
+- 最左侧的为主控插件VM-USB（说明书：[VM-USB_Manual](documents\WIENER_VM-USB_Manual_R4_2022.pdf) ），如果需要原始数据解码，则需要查阅该说明书~（最好还是不要查阅..........）
 - SIS36/38 XX 为scaler 插件，各个通道对应的scaler信号来源：[scaler list](documents\Scaler List-Jin-comment.pdf)
 - 中间的插件为v977，具体作用现在不太清楚。
 - 中间的三个8通道ADC，为SIS3300/1，两种插件基本一致，说明书见：[SIS330X ](documents\sis3300_v300.pdf) ，最大输入信号5V
@@ -338,9 +338,9 @@ NSCL DAQ的网页详细说明：  [NSCL DAQ Software Documentation](https://docs
 - SIS3316 的16路，对应第一层GAGG的前16路
 - SIS3301(倒数第二个插件)，对应第一层GAGG的后8路
 - 第一个SIS3300，前两路为IC，Mesh信号，后六路为第二层GAGG的9-14路（==第二层没有足够的获取通道==）
-- 第二个SIS3300，接入第二层GAGG的1-8路
+- 第二个SIS3300，接入第二层GAGG的1-8路  (这几个插件)
 
-#### 关于原始数据解码，.tcl配置文件
+#### 关于原始数据解码，.tcl配置文件，以及330X插件，3316插件的简要配置参数
 
 frib_daq生成的数据为.evt结构的16进制文件，目前有用于观察波形的Igor程序。下面简述从中提取外部时间戳，也就是scaler的方法：
 
@@ -412,7 +412,7 @@ frib_daq生成的数据为.evt结构的16进制文件，目前有用于观察波
 - ssh  user@login-a.rcnp.osaka-u.ac.jp
 - 输入账户密码，随后ssh跳转到其他服务器
 
-==从内网（rcnp-gp）==登入rcnp账户
+==从内网（rcnp-gp）==登入rcnp账户，rcnp-gp需要绑定设备ip地址
 
 - ssh  user@saho-a
 - 输入账户密码，随后ssh跳转到其他服务器
