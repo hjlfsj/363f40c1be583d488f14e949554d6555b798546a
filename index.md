@@ -38,7 +38,7 @@
 
 ### 逻辑设置
 
-- 主trigger 的逻辑参见 [Preparations](documents\Preparations.pdf) 中的trigger logic。**Trigger = `IC` (delay 100 us) && `Mesh`(stretch 120us)**
+- 主trigger 的逻辑参见 [Preparations](documents\Preparations.pdf) 中的trigger logic。**Trigger = `IC` (delay 100 us) && `Mesh`(stretch 120us)**，IC延迟时间的设置和电子漂移时间相关，
 -  系统之间的的连接，以及部分NIM机箱的线路连接见[线路示意图](imgs\实验线路连接.png). （==不涉及具体插件的逻辑结构图：==）
 
 
@@ -79,10 +79,10 @@
 | <img src="imgs\beanline.jpg" style="zoom: 50%;" /> |
 |                                                    |
 
-1. F0：初级靶  (Be 1/2.5/3/4.5 mm)
-2. F1：Al降能片（具体安装厚度待定）+狭缝
-3. F2：PPAC + Si (==320um==)+ PPAC + 塑闪（==100um==）
-4. F3 ：PPAC + Si (320um)+ PPAC + 塑闪  (100um)
+1. F0：初级靶  (Be 1/2.5/3/4.5 mm)，束流测定厚度为==1.12，2.82，3.44，5.08 mm==
+2. F1：Al降能片（==1.5，2.5，3.3，4.1 mm==）+狭缝。（4.1mm的降能片在11月的实验的调试中找不到束斑，无法使用）
+3. F2：PPAC + Si (==320um==)+ PPAC + 塑闪（==100/1000 um==）
+4. F3 ：PPAC + Si (320um)+ PPAC + 塑闪  (==100/1000 um==)
 
 ### 初级靶，Al降能片
 
@@ -95,15 +95,22 @@
 | -------------------------------------------------- |
 | <img src="imgs\F2_beam.jpg" style="zoom:12.5%;" /> |
 
-==F0，F1 步进电机控制系统使用说明：==<font color = "red">（待补充）</font>
+==F0，F1 步进电机控制系统使用说明：==
 
-==EN Magnets控制系统使用说明：==<font color = "red">（待补充）</font>
+- ssh -Y quser@oasis,  ps:rcnpdaq  
+- cd /home/quser/exp/ATTPC_en
+- endev_parameters.def  , endev                 打开控制界面，安装wiki中以及界面中的位置说明调节步进电机的位置。
+
+==EN Magnets控制系统使用说明：==
+
+- ssh -Y quser@vmeserver1-gp   , ps: 
+- cd /home/quser/exp/ATTPC_en
+- enmag                              ,即可打开磁铁控制界面
+- 如果遇到磁铁电流无法控制的情况，需要到楼下重启磁铁电源。
 
 
 
 ### 塑闪，PPAC
-
-
 
 | F2,F3塑闪（图中标签为之前的塑闪厚度）           | F3_PPAC                                          |
 | ----------------------------------------------- | ------------------------------------------------ |
@@ -114,7 +121,7 @@
 ==F2，F3塑料闪烁体==
 
 - 塑料闪烁体两端各有一个光电倍增管读出：F2PL_L，F2PL_R，F2PL_L，F2PL_R
-- 厚度：100um
+- 厚度：100um，==11月份实验全部更换为 1000um==
 - 工作电压：1500V.  (使用CAEN SY403远控电压)
 
 ==F2，F3 PPAC==
@@ -126,6 +133,18 @@
   | F2U  | F2D  | F3U  | F3D  |
   | ---- | ---- | ---- | ---- |
   | 813V | 808V | 797V | 851V |
+  
+- PPAC的工作电压需要根据实际束流调整，以优化效率。E565 $^{12}$Be 束流 PPAC工作电压
+
+  | F2U  | F2D  | F3U  | F3D  |
+  | ---- | ---- | ---- | ---- |
+  | 695  | 701  | 821  | 874  |
+
+### EN beamline 气路， PPAC气路
+
+| EN beamline气路控制                                   |
+| ----------------------------------------------------- |
+| <img src="imgs\EN_beamline.jpg" style="zoom: 25%;" /> |
 
 
 
@@ -148,7 +167,7 @@
 | ---------------------------------------------- |
 | <img src="imgs\attpc.png" style="zoom:50%;" /> |
 
-ATTPC的主体结构示意图如上图所示。与示意图不同的是，本次束流从pad端入射，pad中心挖去了直径为30mm的圆孔。阳极的电压为10kV，阳极一侧安装了零度探测器。
+ATTPC的主体结构示意图如上图所示。与示意图不同的是，本次束流从pad端入射，pad中心挖去了直径为30mm的圆孔。阴极的电压为50kV，阴极一侧安装了零度探测器。
 
 AT-TPC的各个系统，在[Preparations](documents\Preparations.pdf)有详细的介绍，但是图片清晰度极低。
 
@@ -190,7 +209,7 @@ GET获取的控制界面为`AT-TPC Envoy`，GUI界面如下图所示：
 
 AT-TPC的电子漂移区域可以分为：
 
-- 阴极(-10kV)到V1，电子漂移区域
+- 阴极(-50kV)到V1，电子漂移区域
 - V2到pad，信号放大区域
 
 | HV Power control。右下角可以监控每个通道的漏流大小，以判断tpc是否打火 | 漂移以及放大区域的结构                      |
@@ -330,8 +349,8 @@ NSCL DAQ的网页详细说明：  [NSCL DAQ Software Documentation](https://docs
 - 最左侧的为主控插件VM-USB（说明书：[VM-USB_Manual](documents\WIENER_VM-USB_Manual_R4_2022.pdf) ），如果需要原始数据解码，则需要查阅该说明书~（最好还是不要查阅..........）
 - SIS36/38 XX 为scaler 插件，各个通道对应的scaler信号来源：[scaler list](documents\Scaler List-Jin-comment.pdf)
 - 中间的插件为v977，具体作用现在不太清楚。
-- 中间的三个8通道ADC，为SIS3300/1，两种插件基本一致，说明书见：[SIS330X ](documents\sis3300_v300.pdf) ，最大输入信号5V
-- 最后一个插件为16通道ADC，SIS3316，说明书见：[SIS3316](documents\sis3316-m-1-1-v128.pdf)，最大输入信号2/5 V
+- 中间的三个8通道ADC，为SIS3300/1，两种插件基本一致，==说明书==见：[SIS330X ](documents\sis3300_v300.pdf) ，最大输入信号5V
+- 最后一个插件为16通道ADC，SIS3316，==说明书==见：[SIS3316](documents\sis3316-m-1-1-v128.pdf)，最大输入信号2/5 V
 
 ==目前ADC通道的分配情况：（gagg的mapping还需要进一步确认）==
 
